@@ -1,0 +1,49 @@
+{% extends 'Admin/home_index.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_rejected_workers_post/">
+  <table class="pull-left">
+    <tr>{% csrf_token %}
+      <td>
+      <input type="text" name="textfield" id="textfield" placeholder="search with worker name" class="form-control"/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success"/></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th width="31">Sl.no</th>
+      <th width="51">Worker name</th>
+      <th width="33">Place</th>
+      <th width="33">Email</th>
+      <th width="45">Gender</th>
+      <th width="31">State</th>
+      <th width="25">City</th>
+      <th width="10">Pin</th>
+      <th width="56">Category</th>
+      <th width="38">Phone</th>
+      <th width="36">Photo</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.worker_name }}</td>
+      <td>{{ i.place }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.state }}</td>
+      <td>{{ i.city }}</td>
+      <td>{{ i.pin }}</td>
+      <td>{{ i.CATEGORY.name }}</td>
+      <td>{{ i.phone_number }}&nbsp;</td>
+      <td><img src="{{ i.photo }}" height="70px" width="70px"></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

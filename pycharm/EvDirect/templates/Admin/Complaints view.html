@@ -1,0 +1,47 @@
+{% extends 'Admin/home_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/complaints_viewpost/">
+  <table class="pull-left">
+    <tr>{%csrf_token%}
+      <td>From</td>
+      <td>
+      <input type="date" name="textfield" id="textfield"class="form-control" required/></td>
+      <td>To</td>
+      <td>
+      <input type="date" name="textfield2" id="textfield2" class="form-control" required/></td>
+      <td><input type="submit" name="button" id="button" value="Search"class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th width="10px">Sl.no</th>
+      <th>Date</th>
+      <th>Complaint</th>
+      <th>Status</th>
+      <th>User</th>
+      <th>Reply</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.date }}&nbsp;</td>
+      <td>&nbsp;{{ i.complaints }}</td>
+      <td>{{ i.status }}&nbsp;</td>
+      <td>{{ i.USER.uname }}&nbsp;</td>
+      <td>{% if i.status != 'Replied' %}
+          <a href="/myapp/send_reply/{{ i.id }}#tab"class="btn btn-outline-success">Reply</a>
+          {% else  %}
+      {{ i.replay }}
+      {% endif %}
+      </td>
+        {% endfor %}
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

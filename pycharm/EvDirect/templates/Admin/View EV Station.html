@@ -1,0 +1,53 @@
+{% extends 'Admin/home_index.html' %}
+{% block body %}
+
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_ev_station_post/">
+  <table class="pull-left">
+    <tr>{% csrf_token %}
+      <td>
+      <input type="text" name="textfield" id="textfield"class="form-control" placeholder="name"/></td>
+      <td><input type="submit" name="button" id="button" value="Search"class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Sl.no</th>
+      <th>Station name</th>
+      <th>Place</th>
+         <th>City</th>
+      <th>State</th>
+      <th>Pin</th>
+              <th>Email</th>
+
+      <th>Phone no</th>
+
+      <th>Photo</th>
+      <td>&nbsp;</td>
+      <td></td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.station_name }}</td>
+      <td>{{ i.place }}</td>
+         <td>{{ i.city }}</td>
+      <td>{{ i.state }}&nbsp;</td>
+      <td>&nbsp;{{ i.pin }}</td>
+              <td>&nbsp;{{ i.email }}</td>
+
+      <td>{{ i.phone_number }}</td>
+
+      <td><img src="{{ i.photo }}"height="60px" width="60px"> </td>
+      <td><a href="/myapp/approve_ev_station/{{ i.LOGIN.id }}"class="btn btn-outline-success">Approve</a> </td>
+      <td><a href="/myapp/reject_ev_station/{{ i.LOGIN.id }}"class="btn btn-outline-danger"> Reject </a></td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

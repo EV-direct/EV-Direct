@@ -1,0 +1,54 @@
+{% extends 'EVcharging/EVcharging_home.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/ev_editstation_post/" enctype="multipart/form-data">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+        <input type="hidden" name="id" value="{{ data.id }}">
+      <th>Station name</th>
+      <td>
+      <input type="text" name="textfield" value="{{ data.station_name }}" id="textfield"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>
+      <input type="email" name="textfield2" value="{{ data.email }}" id="textfield2"  class="form-control"  required/></td>
+    </tr>
+      <th>Place</th>
+      <td>
+      <input type="text" name="textfield5" value="{{ data.place }}" id="textfield5"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td>
+      <input type="text" name="textfield6" value="{{ data.city }}" id="textfield6"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td>
+      <input type="text" name="textfield7" value="{{ data.state }}" id="textfield7"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <th>Pin</th>
+      <td>
+      <input type="text" name="textfield8" value="{{ data.pin }}" id="textfield8"  class="form-control"  pattern="[6][0-9]{5}" required/></td>
+    </tr>
+    <tr>
+      <th>Phone no</th>
+      <td>
+      <input type="text" name="textfield9" value="{{ data.phone_number }}" id="textfield9"  class="form-control"  pattern="[9876][0-9]{9}" required/></td>
+    </tr>
+    <tr>
+      <th>Photo</th>
+      <td>
+      <input type="file" name="textfield10" id="textfield10" required/>
+      <img src="{{ data.photo }}" height="200px" width="auto"> </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Update" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

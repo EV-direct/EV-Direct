@@ -1,0 +1,174 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interior Register Form Responsive Widget Template :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="Interior Register Form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<link href="/static/signup/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/signup/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+</head>
+<body style="background: url(https://img.freepik.com/free-photo/charging-station-powering-up-electric-car_157027-3485.jpg?t=st=1710738131~exp=1710741731~hmac=2b108069c99f17796c51a598546791f3bbcfbfaa1acea83f41e615194c40bc7a&w=1380);">
+<div class="signupform">
+<h1>Ev Direct Register Form</h1>
+	<div class="container">
+
+		<div class="agile_info">
+			<div class="w3l_form">
+				<div class="left_grid_info">
+					<h3>Welcome !</h3>
+					<h4>to Ev Direct</h4>
+					<p> Embark on the electric frontier with EvDirect. From booking charging slots to accessing comprehensive EV services, we're here to elevate your EV experience. Welcome to the future of mobility.</p>
+					<ul class="social_section_1info">
+						<li><a href="#" class="w3_facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#" class="w3_google"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="w3_info">
+				<h2>Create An Account</h2>
+				<p>Please provide genuine information only. We will check your information to approve your account.</p>
+						<form method="post" action="/myapp/ev_signup_post/" enctype="multipart/form-data">
+
+                            {% csrf_token %}
+
+                            <div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="Station Name" name="textfield" required="">
+						</div>
+
+
+						<div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="email" placeholder="Email" name="textfield2" required="">
+						</div>
+
+
+
+						<div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="Place" pattern="[a-zA-Z]+" name="textfield5" required="">
+						</div>
+
+						<div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="City" name="textfield6" required="">
+						</div>
+
+                            <div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="State" name="textfield7" required="">
+						</div>
+
+                            <div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="Pin" name="textfield8" pattern="[6][0-9]{5}" required="">
+						</div>
+
+                            <div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="text" placeholder="Phone no" name="textfield9" pattern="[9876][0-9]{9}" required="">
+						</div>
+
+                            <div class="input-group">
+							<span><i aria-hidden="true"></i></span>
+							<input type="file" placeholder="Photo" name="textfield10" required="">
+						</div>
+
+						<div class="input-group">
+							<span><i  class="fa fa-lock" aria-hidden="true"></i></span>
+							<input type="password" placeholder="Password"  name="textfield4" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required="">
+						</div>
+
+							<input type="checkbox" value="remember-me" /> <h4>Send me latest updates </h4>
+							<button class="btn btn-danger btn-block" type="submit">Create Account</button >
+					</form>
+			</div>
+			<div class="clear"></div>
+			</div>
+
+		</div>
+		<div class="footer">
+
+ <p>&copy; EV Direct 2024. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="blank">W3layouts</a></p>
+ </div>
+	</div>
+	</body>
+</html>
+
+
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/ev_signup_post/" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#  <table width="311" border="1">#}
+{#    <tr>#}
+{#      <td>Station name</td>#}
+{#      <td><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Password</td>#}
+{#      <td><label for="textfield4"></label>#}
+{#      <input type="text" name="textfield4" id="textfield4" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Place</td>#}
+{#      <td><label for="textfield5"></label>#}
+{#      <input type="text" name="textfield5" id="textfield5" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>City</td>#}
+{#      <td><label for="textfield6"></label>#}
+{#      <input type="text" name="textfield6" id="textfield6" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>State</td>#}
+{#      <td><label for="textfield7"></label>#}
+{#      <input type="text" name="textfield7" id="textfield7" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Pin</td>#}
+{#      <td><label for="textfield8"></label>#}
+{#      <input type="text" name="textfield8" id="textfield8" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Phone no</td>#}
+{#      <td><label for="textfield9"></label>#}
+{#      <input type="text" name="textfield9" id="textfield9" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Photo</td>#}
+{#      <td><label for="textfield10"></label>#}
+{#      <input type="file" name="textfield10" id="textfield10" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>&nbsp;</td>#}
+{#      <td><input type="submit" name="button" id="button" value="Signup" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <label for="textfield3"></label>#}
+{#  <input type="text" name="textfield3" id="textfield3" />#}
+{#</form>#}
+{#</body>#}
+{#</html>#}

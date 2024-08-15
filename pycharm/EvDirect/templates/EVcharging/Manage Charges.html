@@ -1,0 +1,26 @@
+{% extends 'EVcharging/EVcharging_home.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/ev_managecharges_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <th>Unit</th>
+      <td>
+        <select name="select" id="select"    class="form-control" >
+            <option>100</option>
+            <option>95</option>
+            <option>110</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th>amount</th>
+      <td>
+      <input type="number" name="textfield" id="textfield"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

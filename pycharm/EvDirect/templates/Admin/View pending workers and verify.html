@@ -1,0 +1,51 @@
+{% extends 'Admin/home_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_pending_workers_and_verify_post/">
+  <table class="pull-left">
+    <tr>{% csrf_token %}
+      <td>
+      <input type="text" name="textfield" id="textfield" placeholder="worker name" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Sl.no</th>
+      <th>Worker name</th>
+      <th>Place</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Pin</th>
+      <th>Category</th>
+      <th>Phone</th>
+      <th>Photo</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.worker_name }}</td>
+      <td>&nbsp;{{ i.place }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.gender }}</td>
+      <td>{{ i.state }}</td>
+      <td>&nbsp;{{ i.city }}</td>
+      <td>{{ i.pin }}</td>
+      <td>{{ i.CATEGORY.name }}</td>
+      <td>{{ i.phone_number }}</td>
+      <td>&nbsp;<img src="{{ i.photo }}" height="70px" width="70px"></td>
+      <td><a href="/myapp/approve_workers/{{ i.LOGIN.id }}" class="btn btn-outline-success ">Approve</a></td>
+      <td><a href="/myapp/reject_workers/{{ i.id }}" class="btn btn-outline-danger">Reject</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

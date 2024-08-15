@@ -1,0 +1,32 @@
+{% extends 'EVcharging/EVcharging_home.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/ev_edit_slots_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+
+  <tr>
+    <th>Date</th>
+    <td>
+      <input type="hidden" name="id" value="{{ data1.id }}" id="" />
+      <input type="date" name="textfield2" value="{{ data1.date|date:'Y-m-d' }}"  class="form-control"  id="textfield2" required/>
+    </td>
+  </tr>
+  <tr>
+    <th>Free slots</th>
+    <td>
+      <input type="text" name="textfield3"value="{{ data1.free_slot }}"  class="form-control"  id="textfield3" required/></td>
+  </tr>
+  <tr>
+    <th>Charges</th>
+    <td>
+     <input type="text" name="textfield4" value="{{ data1.charges }}"  id="textfield4"  class="form-control"  required/></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Edit" class="btn btn-success" /></td>
+  </tr>
+  </table>
+
+</form>
+{% endblock %}

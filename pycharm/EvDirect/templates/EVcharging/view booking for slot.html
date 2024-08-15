@@ -1,0 +1,43 @@
+{% extends 'EVcharging/EVcharging_home.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/ev_view_bookingforslot_post/">
+    {% csrf_token %}
+  <table class="pull-left">
+    <tr>
+        <th>From</th>
+      <td>
+      <input type="date" name="textfield" id=""  class="form-control" required/>
+        <th>To Date</th>
+      <td><input type="date" name="textfield2" id=""   class="form-control"  required/></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table class="table table-bordered">
+    <tr>
+      <th width="16">Sl no</th>
+      <th width="43">Ev station </th>
+      <th width="29">Date</th>
+      <th width="29">User</th>
+      <th width="42">Charges</th>
+      <th width="25">Unit</th>
+      <th width="28">Slot Id</th>
+       <td width="32">&nbsp;</td>
+      <td width="29">&nbsp;</td>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.SLOT_ID.EV_STATION.station_name }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>{{ i.USER.uname }}&nbsp;</td>
+      <td>{{ i.SLOT_ID.charges }}&nbsp;</td>
+      <td>&nbsp;{{ i.SLOT_ID.unit }}</td>
+      <td>{{ i.SLOT_ID.id }}&nbsp;</td>
+       <td><a href="/myapp/approve_evstation/{{ i.id }}" class="btn btn-success">Approve</a></td>
+      <td><a href="/myapp/reject_evstation/{{ i.id }}" class="btn btn-danger">Reject</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

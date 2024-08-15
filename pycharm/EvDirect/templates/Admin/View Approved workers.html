@@ -1,0 +1,48 @@
+{% extends 'Admin/home_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/view_approved_workers_post/">
+  <table class="pull-left">
+    <tr>{% csrf_token %}
+      <td>
+      <input type="text" name="textfield" id="textfield" placeholder="worker name" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th width="11">Sl.no</th>
+      <th width="11">Worker name</th>
+      <th width="11">Place</th>
+      <th width="11">Email</th>
+      <th width="11">Gender</th>
+      <th width="11">State</th>
+      <th width="11">City</th>
+      <th width="11">Pin</th>
+      <th width="11">Category</th>
+      <th width="11">Phone</th>
+      <th width="21">Photo</th>
+      <th width="21">Status</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}&nbsp;</td>
+      <td>{{ i.worker_name }}&nbsp;</td>
+      <td>{{ i.place }}&nbsp;</td>
+      <td>{{ i.email }}&nbsp;</td>
+      <td>{{ i.gender }}</td>
+      <td>&nbsp;{{ i.state }}</td>
+      <td>{{ i.city }}&nbsp;</td>
+      <td>{{ i.pin }}&nbsp;</td>
+      <td>{{ i.CATEGORY.name }}&nbsp;</td>
+      <td>{{ i.phone_number }}</td>
+      <td><img src="{{ i.photo }}" height="70px" width="70px"></td>
+      <td>{{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+{% endblock %}

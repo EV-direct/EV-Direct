@@ -1,0 +1,27 @@
+{% extends 'EVcharging/EVcharging_home.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/myapp/ev_edit_charges_post/">
+    {% csrf_token %}
+    <input type="hidden" value="{{ data.id }}" name="id"/>
+  <table class="table table-bordered">
+    <tr>
+      <th>Unit</th>
+      <td>
+        <select name="select" id="select" class="form-control">
+            <option {% if data.unit == "100" %} selected{% endif  %} >100</option>
+            <option {% if data.unit == "95" %} selected{% endif  %} >95</option>
+            <option {% if data.unit == "110" %} selected{% endif  %} >110</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th><p>Amount</p></th>
+      <td>
+      <input type="text" value="{{ data.amount }}" name="textfield" id="textfield"  class="form-control"  required/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Edit" class="btn btn-success" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}
